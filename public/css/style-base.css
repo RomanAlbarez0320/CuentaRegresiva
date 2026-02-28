@@ -1,0 +1,44 @@
+/* ===== RESET Y BASE ===== */
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-color: #000;
+    --rosa-pastel: #ffb6c1;
+    --rosa-medio: #ff9eb5;
+    --rosa-oscuro: #d46b8d;
+    --blanco-rosado: #fff0f5;
+}
+
+body {
+    background-color: var(--dark-color);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ===== SISTEMA DE FASES ===== */
+.phase {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.phase.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* ===== ESTADO INICIAL ===== */
+.not-loaded * {
+    animation-play-state: paused !important;
+}

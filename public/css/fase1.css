@@ -1,0 +1,380 @@
+/* ===== FASE 1: TARJETA DE ANIVERSARIO ROSA PASTEL ===== */
+
+#phase1 {
+    background: linear-gradient(145deg, #ffe4ec 0%, #ffd9e8 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#phase1::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 200, 220, 0.3);
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+}
+
+#phase1::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 180, 200, 0.3);
+    border-radius: 50%;
+    bottom: -80px;
+    left: -80px;
+    z-index: 0;
+}
+
+.tarjeta-aniversario {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 40px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 20px 40px rgba(255, 150, 180, 0.25),
+                0 8px 20px rgba(0, 0, 0, 0.1),
+                inset 0 2px 4px rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    animation: aparecer 1s ease-out;
+}
+
+@keyframes aparecer {
+    0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* === NUEVO ESTILO PARA IMAGEN CUADRADA CON BORDES REDONDEADOS (ESTILO SPOTIFY) === */
+.foto-marco {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.5rem;
+    border-radius: 20px; /* Bordes redondeados pero no círculo completo */
+    padding: 6px; /* Un poco de padding para simular el borde blanco */
+    background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+    box-shadow: 0 15px 30px rgba(255, 105, 135, 0.4);
+    border: 2px solid white;
+    /* Opcional: sombra interior para dar profundidad */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px; /* Un poco menos que el marco para que se vea el borde de color */
+    border: 2px solid white; /* Borde blanco delgado */
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(1.02) saturate(1.1);
+    display: block; /* Para evitar espacios */
+}
+
+.foto:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1) saturate(1.2);
+    box-shadow: 0 0 20px #ffa5b9;
+}
+
+/* Opcional: si quieres que al pasar el mouse el marco también crezca */
+.foto-marco:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 35px rgba(255, 105, 135, 0.5);
+}
+/* ==================================================== */
+
+.titulo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #d46b8d;
+    margin: 0.5rem 0 0.2rem;
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
+
+.subtitulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: #b35775;
+    background: rgba(255, 220, 230, 0.6);
+    display: inline-block;
+    padding: 0.4rem 1.5rem;
+    border-radius: 40px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(4px);
+    border: 1px solid #ffb3c6;
+}
+
+.btn-pastel {
+    background: #ffb3c6;
+    border: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 1rem 2.5rem;
+    border-radius: 60px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #d46b8d, 0 10px 20px rgba(255, 105, 135, 0.3);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid white;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.btn-pastel:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 0 #d46b8d, 0 15px 25px rgba(255, 105, 135, 0.4);
+    background: #ffc0cb;
+}
+
+.btn-pastel:active {
+    transform: translateY(5px);
+    box-shadow: 0 5px 0 #d46b8d, 0 8px 15px rgba(255, 105, 135, 0.3);
+}
+
+@media (max-width: 480px) {
+    .foto-marco {
+        width: 150px;
+        height: 150px;
+    }
+    .titulo {
+        font-size: 2.5rem;
+    }
+    .subtitulo {
+        font-size: 1rem;
+    }
+    .btn-pastel {
+        font-size: 1rem;
+        padding: 0.8rem 1.8rem;
+    }
+}
+/* ===== EXTRAS FASE 1 ===== */
+/* Fondo con partículas brillantes */
+#phase1 {
+    position: relative;
+    overflow: hidden;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 200, 220, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.3);
+    animation: floatParticle 12s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+.particle:nth-child(2) { top: 70%; left: 90%; animation-delay: 2s; width: 8px; height: 8px; }
+.particle:nth-child(3) { top: 30%; left: 80%; animation-delay: 4s; }
+.particle:nth-child(4) { top: 80%; left: 20%; animation-delay: 6s; width: 10px; height: 10px; }
+.particle:nth-child(5) { top: 20%; left: 60%; animation-delay: 8s; }
+.particle:nth-child(6) { top: 60%; left: 40%; animation-delay: 10s; }
+.particle:nth-child(7) { top: 40%; left: 15%; animation-delay: 3s; }
+.particle:nth-child(8) { top: 90%; left: 70%; animation-delay: 7s; }
+
+@keyframes floatParticle {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+    50% { transform: translate(20px, -30px) scale(1.5); opacity: 0.8; }
+    100% { transform: translate(-20px, -60px) scale(0.5); opacity: 0; }
+}
+
+/* Corazones flotando (más romántico) */
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.heart-float {
+    position: absolute;
+    color: rgba(255, 120, 150, 0.3);
+    font-size: 24px;
+    animation: heartFloat 10s linear infinite;
+    user-select: none;
+}
+
+.heart-float:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s; font-size: 30px; }
+.heart-float:nth-child(2) { left: 95%; top: 30%; animation-delay: 3s; font-size: 40px; }
+.heart-float:nth-child(3) { left: 15%; top: 70%; animation-delay: 6s; font-size: 25px; }
+.heart-float:nth-child(4) { left: 85%; top: 80%; animation-delay: 2s; font-size: 35px; }
+.heart-float:nth-child(5) { left: 50%; top: 20%; animation-delay: 8s; font-size: 45px; }
+.heart-float:nth-child(6) { left: 30%; top: 90%; animation-delay: 4s; font-size: 28px; }
+.heart-float:nth-child(7) { left: 70%; top: 40%; animation-delay: 5s; font-size: 32px; }
+.heart-float:nth-child(8) { left: 45%; top: 60%; animation-delay: 7s; font-size: 38px; }
+
+@keyframes heartFloat {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.5; }
+    50% { opacity: 0.3; transform: translateY(-50vh) rotate(20deg); }
+    100% { transform: translateY(-100vh) rotate(40deg); opacity: 0; }
+}
+
+/* Marco de foto estilo Spotify (cuadrado con bordes redondos) */
+.foto-marco {
+    border-radius: 20px !important; /* Cambia de círculo a cuadrado redondeado */
+    width: 220px !important;
+    height: 220px !important;
+    padding: 5px !important;
+    background: linear-gradient(145deg, #ffb6c1, #ff85a5) !important;
+    box-shadow: 0 15px 30px rgba(255, 80, 120, 0.4), 0 0 0 3px white inset !important;
+}
+
+.foto {
+    border-radius: 16px !important; /* Coincide con el marco */
+    border: 3px solid white !important;
+}
+
+/* Título con brillo */
+.titulo {
+    background: linear-gradient(45deg, #d46b8d, #ff99bb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+    text-shadow: 0 0 15px #ffa5b9, 2px 2px 10px rgba(255,255,255,0.8) !important;
+    animation: titleGlow 2s infinite alternate;
+}
+
+@keyframes titleGlow {
+    from { text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff99bb; }
+    to { text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493; }
+}
+
+/* Subtítulo con fondo más elegante */
+.subtitulo {
+    background: rgba(255, 220, 240, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 5px 15px rgba(255, 105, 135, 0.3) !important;
+    font-weight: 400 !important;
+    letter-spacing: 2px !important;
+}
+
+/* Botón con destello */
+.btn-pastel {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-pastel::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%);
+    opacity: 0;
+    transform: rotate(30deg);
+    transition: opacity 0.3s;
+}
+
+.btn-pastel:hover::after {
+    opacity: 1;
+    animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+    0% { left: -60%; }
+    100% { left: 160%; }
+}
+/* ===== MODAL PARA LA IMAGEN ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(255, 105, 135, 0.5), 0 0 0 5px white, 0 0 30px 10px #ffb6c1;
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 3px solid white;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255,255,255,0.5);
+    transition: all 0.2s;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-close:hover {
+    background: rgba(255, 105, 135, 0.8);
+    transform: scale(1.1);
+    border-color: white;
+}
+
+@media (max-width: 480px) {
+    .modal-close {
+        top: 10px;
+        right: 15px;
+        font-size: 40px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+}
