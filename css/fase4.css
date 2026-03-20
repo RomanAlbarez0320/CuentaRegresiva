@@ -1,0 +1,164 @@
+/* ===== FASE 4: CAJA DE REGALO CON PDF ===== */
+#phase4 {
+    background: linear-gradient(145deg, #ffd9e8, #ffe4ec);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.sorpresa-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* ===== ROSAS CAYENDO ===== */
+.rosas-cayendo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.rosa {
+    position: absolute;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    opacity: 0;
+    animation: caerRosa 10s linear infinite;
+    color: #ff3366;
+    text-shadow: 0 0 10px rgba(255, 80, 120, 0.5);
+}
+
+/* Posiciones y retardos (igual que antes, se mantienen) */
+.rosa:nth-child(1) { left: 5%; animation-delay: 0s; }
+.rosa:nth-child(2) { left: 15%; animation-delay: 2s; }
+.rosa:nth-child(3) { left: 25%; animation-delay: 4s; }
+.rosa:nth-child(4) { left: 35%; animation-delay: 1s; }
+.rosa:nth-child(5) { left: 45%; animation-delay: 3s; }
+.rosa:nth-child(6) { left: 55%; animation-delay: 5s; }
+.rosa:nth-child(7) { left: 65%; animation-delay: 0.5s; }
+.rosa:nth-child(8) { left: 75%; animation-delay: 2.5s; }
+.rosa:nth-child(9) { left: 85%; animation-delay: 4.5s; }
+.rosa:nth-child(10) { left: 95%; animation-delay: 1.5s; }
+.rosa:nth-child(11) { left: 10%; animation-delay: 3.5s; }
+.rosa:nth-child(12) { left: 20%; animation-delay: 5.5s; }
+.rosa:nth-child(13) { left: 30%; animation-delay: 0.8s; }
+.rosa:nth-child(14) { left: 40%; animation-delay: 2.8s; }
+.rosa:nth-child(15) { left: 50%; animation-delay: 4.8s; }
+
+@keyframes caerRosa {
+    0% { transform: translateY(-20vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+}
+
+/* ===== IMAGEN DE REGALO ===== */
+.gift-image {
+    width: min(250px, 70%);
+    max-width: 300px;
+    height: auto;
+    cursor: pointer;
+    z-index: 20;
+    animation: flotar 3s ease-in-out infinite;
+    filter: drop-shadow(0 15px 15px rgba(212, 107, 141, 0.4));
+    transition: transform 0.3s;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.gift-image:hover {
+    transform: scale(1.05);
+}
+
+/* ===== MENSAJES ===== */
+.click-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+    color: #b34e71;
+    text-align: center;
+    margin-top: 1rem;
+    text-shadow: 2px 2px 0 rgba(255,255,255,0.8);
+    animation: latido 2s infinite;
+    z-index: 20;
+    position: relative;
+    padding: 0 1rem;
+    max-width: 90%;
+}
+
+.gracias-mensaje {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+    color: #b34e71;
+    text-align: center;
+    margin-top: 2rem;
+    animation: aparecer 1s;
+    position: relative;
+    z-index: 20;
+    padding: 0 1rem;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ESPECÍFICO ===== */
+/* Para pantallas muy pequeñas (menos de 400px, como algunos móviles) */
+@media (max-width: 400px) {
+    .gift-image {
+        width: 60%;
+    }
+    .click-message {
+        font-size: 1.3rem;
+    }
+}
+
+/* Para Huawei Pura 80 y Motorola Razr 50 (pantallas de ~390px a 430px) */
+@media (min-width: 390px) and (max-width: 430px) and (min-height: 800px) {
+    .gift-image {
+        width: 55%;
+        max-width: 200px;
+    }
+    .click-message {
+        font-size: 1.6rem;
+    }
+}
+
+/* Para pantallas de altura reducida (paisaje) */
+@media (max-height: 600px) and (orientation: landscape) {
+    .gift-image {
+        width: 150px;
+    }
+    .click-message {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+    }
+    .rosas-cayendo .rosa {
+        font-size: 1.5rem;
+    }
+}

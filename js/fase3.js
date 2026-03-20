@@ -1,8 +1,7 @@
 function initFase3() {
     console.log('⏳ Contador iniciado correctamente');
 
-    // Fecha objetivo: 20 de marzo de 2026 a las 12:00 AM (medianoche)
-    const targetDate = new Date('2026-03-20T00:00:00').getTime();
+const targetDate = new Date('2026-03-20T00:00:00').getTime();
 
     const interval = setInterval(updateCountdown, 1000);
 
@@ -17,6 +16,12 @@ function initFase3() {
             document.getElementById('min').innerText = '00';
             document.getElementById('sec').innerText = '00';
             console.log('🎉 ¡El contador terminó!');
+            
+            // === ACTIVAR FASE 4 ===
+            document.getElementById('phase3').classList.remove('active');
+            document.getElementById('phase4').classList.add('active');
+            // =======================
+
             return;
         }
 

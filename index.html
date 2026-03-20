@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/fase2.css">
     <link rel="stylesheet" href="css/fase3.css">
     <!-- Los corazones están incluidos en fase2.css o aquí abajo si prefieres -->
+    <!-- ===== NUEVO: CSS PARA FASE 4 ===== -->
+    <link rel="stylesheet" href="css/fase4.css">
 </head>
 <!-- ===== MÚSICA DE FONDO (AUTOPLAY, SIN CONTROLES) ===== -->
     <audio id="musicaFondo" loop>
@@ -485,14 +487,47 @@
     </div>
     
 </section>
+
+                  <!-- ===== FASE 4: CAJA DE REGALO CON PDF (IMAGEN) ===== -->
+        <section id="phase4" class="phase">
+            <div class="sorpresa-container">
+                <!-- Fondo de rosas cayendo -->
+                <div class="rosas-cayendo">
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                    <div class="rosa">🌹</div>
+                </div>
+
+                <!-- Imagen de la caja de regalo (clicable) -->
+                <img src="caja-para-regalo.png" alt="Regalo" class="gift-image" id="giftImage">
+
+                <!-- Mensaje opcional -->
+                <p class="click-message">✨ Toca la caja para abrir tu regalo ✨</p>
+            </div>
+        </section>
     </div>
+    
 
     <!-- JavaScript Modules (tus archivos) -->
     <script src="js/main.js"></script>
     <script src="js/fase1.js"></script>
     <script src="js/fase2.js"></script>
     <script src="js/fase3.js"></script>
+    <!-- ===== NUEVO: SCRIPT PARA FASE 4 ===== -->
+    <script src="js/fase4.js"></script>
 </body>
 </html>
 <audio id="bgMusic" loop><source src="musica.mp3" type="audio/mpeg"></audio><script>document.addEventListener("click", function () {const music = document.getElementById("bgMusic");music.play();}, { once: true });</script> 
-</body></html> 
+</body></html>
